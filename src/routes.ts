@@ -1,9 +1,8 @@
 import express from "express";
-import { getData, postData } from "./controllers";
+import { getAnimales, postAnimal } from "./controllers";
 
 export const router = express.Router();
-// Ruta para obtener datos (GET)
-router.get("/datos", getData);
 
-// Ruta para agregar datos (POST)
-router.post("/datos", postData);
+// Rutas de animales
+router.get("/animales", getAnimales);
+router.post("/animales", postAnimal);

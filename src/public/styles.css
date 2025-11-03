@@ -1,0 +1,222 @@
+:root {
+  --primary: #8e44ad;
+  --primary-dark: #6c3483;
+  --secondary: #d7bde2;
+  --background: #1a0a2c;
+  --white: #ffffff;
+  --text: #f0f0f0;
+  --text-light: #aaa;
+  --accent: #9b59b6;
+  --shadow: 0 8px 25px rgba(0,0,0,0.2);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #38065c, #6a0dad, #8e44ad, #9b59b6);
+  background-size: 400% 400%;
+  animation: backgroundShift 20s ease infinite;
+  color: var(--text);
+  padding: 0;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.navbar {
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  gap: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.navbar a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.container {
+  background: rgba(38, 3, 61, 0.9);
+  margin-top: 60px;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 550px;
+  width: 90%;
+  text-align: center;
+  border: 2px solid var(--accent);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  color: var(--accent);
+  margin-bottom: 25px;
+  font-size: 2rem;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+h3 {
+  color: var(--accent);
+  margin: 30px 0 15px;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 5px;
+  text-shadow: 0 0 6px var(--accent);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 2px solid #5d3b7d;
+  transition: var(--transition);
+  font-size: 15px;
+  background: #2e1a3f;
+  color: var(--white);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+input::placeholder { color: var(--text-light); }
+
+button {
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-shadow: 0 0 5px #fff;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px var(--accent);
+}
+
+/* Lista animales */
+#animalList {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+  text-align: left;
+}
+
+#animalList li {
+  background: rgba(50,0,80,0.8);
+  padding: 12px 15px;
+  border-left: 5px solid var(--accent);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  transition: var(--transition);
+  color: var(--white);
+}
+
+#animalList li:hover {
+  transform: translateX(5px);
+  background: rgba(120,0,150,0.85);
+}
+
+/* Modal genérico */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.85);
+}
+
+.modal.active { display: block; }
+
+.modal-content {
+  background-color: rgba(30,0,50,0.95);
+  margin: 8% auto;
+  padding: 20px;
+  border: 2px solid var(--accent);
+  width: 80%; max-width: 500px;
+  border-radius: var(--radius);
+  color: var(--white);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 0 20px var(--accent);
+}
+
+.modal-content h2 { text-shadow: 0 0 10px var(--accent); }
+
+/* Galería */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.galeria-item {
+  width: 200px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: center;
+  background: rgba(30,0,50,0.8);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria-item img { width: 100%; height: auto; }
+
+.galeria-item p {
+  padding: 10px;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.galeria-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--accent);
+}

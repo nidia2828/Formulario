@@ -9,14 +9,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json()); //para leer JSON en las peticiones
-app.use(express.urlencoded({extended : true})); //para leer l=datos de formularios
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-//Ruta de archivos est [aticos]
-app.use(express.static(path.resolve(__dirname, "public")));
-//Rutas
+// Archivos estáticos
+app.use(express.static(path.join(__dirname, "public")));
+
+// Rutas API
 app.use("/api", router);
-//servidor escuchando
-app.listen(PORT, ()=> {
-    console.log ( `servidos corriendo en http://localhost:${PORT}`)
-});
+
+app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));

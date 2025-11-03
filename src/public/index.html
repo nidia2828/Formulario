@@ -1,41 +1,66 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Formulario</title>
-
-    <link rel="stylesheet" href="style.css"> <!-- Enlace al CSS externo -->
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinaria El Guaricano</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#inicio">Home</a></li>
+      <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
 
-    <div class="container">
-
-        <h2>Formulario de Usuario</h2>
-
-        <form id="userForm" class="form">
-
-            <input type="text" id="nombre" placeholder="Nombre" required>
-
-            <input type="email" id="correo" placeholder="Correo" required>
-
-            <button type="submit">Enviar</button>
-
-        </form>
-        <h3>Usuarios Registrados</h3>
-
-        <ul id="userList"></ul>
-
+  <!-- Ventana Flotante Sobre Nosotros -->
+  <div id="modalSobre" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sobre Nosotros</h2>
+      <p>En nuestra veterinaria cuidamos a tus mascotas con amor y profesionalismo. Contamos con servicios de baños, guardería, peluquería y tienda de suplementos.</p>
     </div>
-    <script src="script.js"></script>
+  </div>
 
+  <!-- Ventana Flotante Galería -->
+  <div id="modalGaleria" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Galería</h2>
+      <div class="galeria"></div>
+    </div>
+  </div>
+
+  <!-- Ventana Flotante Contacto -->
+  <div id="modalContacto" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Contacto</h2>
+      <p>Nombre: Nidia Maria Collado</p>
+      <p>Teléfono: 829-764-4793</p>
+      <p>Email: <a href="mailto:Nidiacollado005@gmail.com">Nidiacollado005@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- Contenedor Formulario -->
+  <div class="container" id="inicio">
+    <h2>Registrar Animal</h2>
+    <form id="animalForm" class="form">
+      <input type="text" id="nombre" placeholder="Nombre del animal" required>
+      <input type="text" id="especie" placeholder="Especie" required>
+      <input type="number" id="edad" placeholder="Edad" required>
+      <input type="text" id="propietario" placeholder="Nombre del propietario" required>
+      <input type="text" id="telefono" placeholder="Teléfono" required>
+      <button type="submit">Registrar</button>
+    </form>
+    <h3>Animales Registrados</h3>
+    <ul id="animalList"></ul>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
